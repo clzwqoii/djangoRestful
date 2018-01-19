@@ -18,7 +18,7 @@
   7 安装mysql驱动
        pip install mysqlclient     然后在settings.py修改配置
   8 创建用户（后面权限管理会用到）
-       python manage.py createsuperuser
+       python manage.py createsuperuser  (最好在cmd命令窗口使用, 最后放在最后一步做)
   9 数据库迁移同步
        1 python manage.py makemigrations
        2 python manage.py migrate

@@ -33,7 +33,7 @@ class Messages():
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     @api_view(['GET'])
-    def messages_list(request):
+    def message_list(request):
         """
             List all code snippets, or create a new snippet.
         """
@@ -51,7 +51,7 @@ class Messages():
             return JsonResponse(serializer.errors, status=400)
 
 @api_view(['GET', 'POST'])
-def messages_list(request):
+def message_list(request):
     """
                         List all code snippets, or create a new snippet.
                     """
