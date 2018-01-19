@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from app.models import Message, LANGUAGE_CHOICES, STYLE_CHOICES
+from .models import Message, LANGUAGE_CHOICES, STYLE_CHOICES
 
 
 class Serializer(serializers.Serializer):
