@@ -12,15 +12,15 @@ from rest_framework.decorators import api_view
 from .common import *
 
 
-class Snippets():
+class Messages():
     """
     List all snippets, or create a new snippet.
     """
     @api_view(['POST'])
     def getsa(self):
 
-        snippets = Message.objects.all()
-        serializer = Serializer(snippets, many=True)
+        message = Message.objects.all()
+        serializer = Serializer(message, many=True)
         response = addCrossDomainHeader(JsonResponse(serializer.data, safe=False))
         return response
 
@@ -33,13 +33,13 @@ class Snippets():
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     @api_view(['GET'])
-    def snippet_list(request):
+    def messages_list(request):
         """
             List all code snippets, or create a new snippet.
         """
         if request.method == 'GET':
-            snippets = Message.objects.all()
-            serializer = Serializer(snippets, many=True)
+            message = Message.objects.all()
+            serializer = Serializer(message, many=True)
             print(serializer.data)
             return JsonResponse(serializer.data, safe=False)
         elif request.method == 'POST':
@@ -51,14 +51,13 @@ class Snippets():
             return JsonResponse(serializer.errors, status=400)
 
 @api_view(['GET', 'POST'])
-def snippet_list(request):
+def messages_list(request):
     """
                         List all code snippets, or create a new snippet.
                     """
     if request.method == 'GET':
-        snippets = Message.objects.all()
-        serializer = Serializer(snippets, many=True)
-        print(serializer.data)
+        message = Message.objects.all()
+        serializer = Serializer(message, many=True)
         return JsonResponse(serializer.data, safe=False)
     elif request.method == 'POST':
         data = JSONParser().parse(request)
