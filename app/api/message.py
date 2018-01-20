@@ -11,7 +11,6 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .common import *
 
-
 class Messages():
     """
     List all snippets, or create a new snippet.
@@ -58,7 +57,7 @@ def message_list(request):
     if request.method == 'GET':
         message = Message.objects.all()
         serializer = Serializer(message, many=True)
-        return JsonResponse(serializer.data, safe=False)
+        return Response(serializer.data)
     elif request.method == 'POST':
         data = JSONParser().parse(request)
         serializer = Serializer(data=data)

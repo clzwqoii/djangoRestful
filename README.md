@@ -17,6 +17,8 @@
        python manage.py startapp restApp
   7 安装mysql驱动
        pip install mysqlclient     然后在settings.py修改配置
+  8 安装pygments
+       pip install pygments
   8 创建用户（后面权限管理会用到）
        python manage.py createsuperuser  (最好在cmd命令窗口使用, 最后放在最后一步做)
   9 数据库迁移同步
@@ -26,6 +28,7 @@
        权限[https://www.cnblogs.com/xiaojikuaipao/p/6009882.html]
            已有数据表或数据   生成models
            python 项目名称/manage.py inspectdb > 项目名称/模型APP名称/models.py
+       4 修改models后  python manage.py syncdb
   10 启动
        python manage.py runserver 0.0.0.0:8000 [http://blog.csdn.net/svalbardksy/article/details/50548073]
   11 配置修改
